@@ -2,7 +2,8 @@ from pathlib import Path
 from hashlib import sha256
 import base64,zlib,json,struct,textwrap
 w=Path(__file__).parent
-logs={p.name:p.read_text(encoding='utf-8') for p in sorted(w.glob('*.log'))}
+logfiles=list(w.glob('*.log')) or list((w/'logs').glob('*.log'))
+logs={p.name:p.read_text(encoding='utf-8') for p in sorted(logfiles)}
 logs_data=json.dumps(logs,ensure_ascii=True,sort_keys=True,separators=(',',':')).encode('utf8')
 logs_payload=base64.b85encode(zlib.compress(logs_data,9)).decode('ascii')
 logs_manifest='\n'.join(f'{sha256(v.encode()).hexdigest()}  logs/{k}' for k,v in logs.items())
