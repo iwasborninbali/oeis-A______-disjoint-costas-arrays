@@ -1,0 +1,8 @@
+n=1 arrays=1 maximum=1
+n=2 arrays=2 maximum=2
+n=3 arrays=4 maximum=2
+n=4 arrays=12 maximum=4
+n=5 arrays=40 maximum=4
+n=6 arrays=116 maximum=6
+n=7 arrays=200 maximum=6
+n=8 arrays=444 maximum=8

@@ -1,0 +1,4 @@
+{"order":9,"arrays":760,"prefixes":64430,"seconds":0.00422117,"symmetry":false}
+order=9 generated=760 catalogue=760 identical_sets=True
+{"order":11,"arrays":4368,"prefixes":1437514,"seconds":0.108343,"symmetry":false}
+order=11 generated=4368 catalogue=4368 identical_sets=True

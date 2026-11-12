@@ -1,0 +1,2 @@
+{"order":13,"arrays":12828,"prefixes":33831238,"seconds":3.07724,"symmetry":false}
+order=13 generated=12828 catalogue=12828 identical_sets=True
