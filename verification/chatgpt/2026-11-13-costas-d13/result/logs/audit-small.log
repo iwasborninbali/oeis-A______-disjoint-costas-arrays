@@ -1,0 +1,7 @@
+n=1 D=1 positive_nodes=2 failed_target_nodes=0
+n=2 D=2 positive_nodes=3 failed_target_nodes=0
+n=3 D=2 positive_nodes=3 failed_target_nodes=5
+n=4 D=4 positive_nodes=5 failed_target_nodes=0
+n=5 D=4 positive_nodes=5 failed_target_nodes=472
+n=6 D=6 positive_nodes=43 failed_target_nodes=0
+n=7 D=6 positive_nodes=120 failed_target_nodes=75457
