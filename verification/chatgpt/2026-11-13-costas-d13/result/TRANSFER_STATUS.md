@@ -1,29 +1,32 @@
-# GitHub delivery scope (2026-11-13)
+# GitHub delivery status (updated 2026-11-13)
 
-This draft branch is an **in-progress partial delivery**. The exhaustive order-13
-nonexistence proof is unfinished.
+Draft PR: https://github.com/iwasborninbali/oeis-A______-disjoint-costas-arrays/pull/1
+Branch: `chatgpt/2026-11-13-costas-d13`, based on `main`; `main` was not modified.
 
-Included under `result/`: the four independent source files, REPORT.md,
-MANIFEST.sha256, and 19 of the 22 original computation logs in `logs/`.
-Each included log has its original, unmodified UTF-8 text and an SHA-256 entry.
+The branch now includes all four independent source files, `REPORT.md`, all
+24 original/continuation logs as separate unchanged text files under `logs/`,
+`make_transfer.py`, `restore_logs.py`, `restore_checkpoints.py`, and a
+`MANIFEST.sha256` for every delivered payload file.
 
-**Not yet transferred to GitHub:**
+The checkpoint tree comprises **23,226 UTF-8 `.done` files**, 805 completed
+first-array roots and 22,421 second-array branch records, with total text
+content size **399,686 bytes**, well below 20 MB.
 
-- `search-n9k9.log` (4,098 bytes)
-- `search-n11k11.log` (22,832 bytes)
-- `search-n13k12-attempt2.log` (34,126 bytes)
-- The 22,647 order-13 `.done` checkpoint files: 803 top-level roots and
-  21,844 completed second-array branches. Their combined file contents are
-  only 387,519 bytes (text, below the requested 20 MB ceiling), but the
-  22,647 separate filesystem entries occupy approximately 90 MiB of disk.
-  These remain in the working container at
-  `/mnt/data/costas-d13-work/checkpoints/n13k12/`, not in the GitHub branch.
+**Representation choice:** Individual checkpoint paths were not committed as
+23,226 separate GitHub blobs because doing so through the connector is
+impractical. Instead their complete path/content pairs are encoded in the
+single 20,258-byte text source `restore_checkpoints.py` (base85/zlib).
+Running `python3 restore_checkpoints.py` from the result directory restores
+all 23,226 file paths and byte-identical contents. The stored canonical
+snapshot SHA-256 is validated by the restore script; an independent restore
+was compared with the original checkpoint directory using `diff -qr`.
 
-The partial order-13 search can be resumed locally from these checkpoint files,
-using `./exact 13 12 300 5` and the root-specific commands in REPORT.md.
-The GitHub branch alone is **not** sufficient to resume at the same detailed
-checkpoint state; it must not be represented as a complete archival copy.
+Only binary generated catalogues, compiled executables, and the thousands
+of *individual* `.done` paths are omitted as separate GitHub files. No
+original log or source file is omitted, and the full checkpoint data is
+losslessly transferable through the script. All payload files were fetched
+through the connector after writing and checked against local copies;
+no NUL-byte conversion was detected.
 
-The MANIFEST.sha256 file hashes every delivered file other than itself, as
-is conventional for a self-referential checksum manifest. More artifacts may
-be added to this draft branch in subsequent work.
+The proof D(13)=11 is **not finished**. After the two resumed roots, 805 of
+1,616 symmetry-reduced roots are exhausted, and no 12-array family was found.
