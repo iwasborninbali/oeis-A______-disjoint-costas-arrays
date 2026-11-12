@@ -1,0 +1,7 @@
+n=8 k=8 catalogue=444 canonical_roots=60 threads=5 setup_seconds=0.00164463
+FOUND order=8 k=8 root=2 nodes=9 indices=2,441,354,342,265,178,101,89,
+INTERRUPTED root=0 nodes=10 no_checkpoint_written
+INTERRUPTED root=5 nodes=16 no_checkpoint_written
+INTERRUPTED root=3 nodes=3 no_checkpoint_written
+INTERRUPTED root=4 nodes=3 no_checkpoint_written
+SUMMARY n=8 k=8 status=FOUND completed_roots=0 total_roots=60 reused=0 started=5 nodes_this_run=41 wall_seconds=0.00308814
