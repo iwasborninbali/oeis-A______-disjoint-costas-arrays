@@ -1,0 +1,7 @@
+n=13 k=12 catalogue=12828 canonical_roots=1616 threads=5 setup_seconds=1.08422
+INTERRUPTED prefix=1161,1834 nodes=7271
+INTERRUPTED prefix=1161,1835 nodes=21430
+INTERRUPTED prefix=1161,1841 nodes=31914
+INTERRUPTED prefix=1161,1837 nodes=18241
+INTERRUPTED prefix=1161,1838 nodes=21773
+PREFIX_SUMMARY root=1161 k=12 status=INCOMPLETE completed=4339 total=4634 reused=0 nodes_this_run=2545997 elapsed=9.09177
