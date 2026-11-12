@@ -1,0 +1,4 @@
+n=6 k=6 catalogue=116 canonical_roots=17 threads=5 setup_seconds=0.000625112
+FOUND order=6 k=6 root=4 nodes=7 indices=4,111,81,73,42,34,
+FOUND order=6 k=6 root=5 nodes=7 indices=5,110,87,58,49,35,
+SUMMARY n=6 k=6 status=FOUND completed_roots=0 total_roots=17 reused=0 started=2 nodes_this_run=14 wall_seconds=0.00760654
