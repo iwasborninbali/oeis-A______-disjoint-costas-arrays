@@ -19,10 +19,11 @@ This directory is a reproducible computational partial verification of
 
 - Target: 12 disjoint Costas arrays.
 - There are 1616 canonical first-array roots under the D4 square symmetries.
-- 803 first-array roots completely exhausted and checkpointed.
+- 805 first-array roots completely exhausted and checkpointed.
 - Five more first-array roots (1158,1159,1161,1162,1163) have been subdivided
-  into independent second-array jobs. The first one is fully exhausted and
-  included among the 803 completed roots. The others are partial.
+  into independent second-array jobs. Roots 1158, 1159 and 1161 are
+  now fully exhausted and counted among the 805 completed roots. Roots 1162
+  and 1163 remain partial.
 - All checkpoint files ending in `.done` were written only after the corresponding
   branch returned exhaustively without a witness. Interrupted branches do
   not have `.done` files and are recomputed when resumed.
@@ -84,4 +85,67 @@ The row-column necessary condition is just the pigeonhole principle.
 - `search-n13k12-prefix*.log`: finer-grained checkpointed partial work.
 
 The supplied witness files are preserved in `verification/certificates/`.
-Sources and logs are checksummed in `sha256sums.txt`.
+All delivered files are checksummed in `MANIFEST.sha256`.
+The historical logs are in `logs/` and were read back byte-for-byte after
+GitHub delivery. The current order-13 checkpoint state is preserved by
+`restore_checkpoints.py`, as detailed below.
+
+
+## GitHub checkout and byte-exact checkpoint restoration (updated 2026-11-13)
+
+The GitHub branch `chatgpt/2026-11-13-costas-d13` is based on `main`.
+This `result/` directory contains all 24 original and continuation run logs,
+the four independent source programs, the SHA-256 manifest, and a standalone
+lossless text snapshot of **23,226 `.done` checkpoint files**. The uncompressed
+checkpoint file contents total **399,686 bytes** (below the 20 MB limit).
+Rather than creating 23,226 GitHub entries, the entire byte-exact checkpoint
+state is embedded as base85+zlib text in `restore_checkpoints.py`.
+The script recreates every original pathname and exact content, recomputes a
+canonical SHA-256 for all checkpoint path/content pairs, and fails if it differs.
+The snapshot was regenerated *after* roots 1159 and 1161 finished, then
+successfully restored in a separate directory and checked with `diff -qr`.
+
+From the **repository** root:
+
+```bash
+cd verification/chatgpt/2026-11-13-costas-d13/result
+python3 restore_checkpoints.py
+sha256sum -c MANIFEST.sha256
+# Regenerate binary catalogue, which is deliberately not committed:
+g++ -std=c++20 -O3 -march=native enumerate.cpp -o enumerate
+./enumerate catalogues 13
+# The verifier locates certificates at verification/certificates in the repo.
+python3 verify.py
+python3 audit_small.py
+# Continue unfinished subdivided roots. The script skips .done jobs:
+g++ -std=c++20 -O3 -march=native -fopenmp exact.cpp -o exact
+./exact 13 12 300 5 1162
+./exact 13 12 300 5 1163
+# After both are exhausted, continue remaining unsolved roots:
+./exact 13 12 300 5
+```
+
+The five arguments to `exact` in prefix mode are **n k time_limit_seconds
+threads root_index**. The third argument is a run cap, not a runtime prediction.
+The tool uses its own `checkpoints/n13k12` directory as the checkpoint store.
+Do not delete it between resumptions. A top-level `EXHAUSTED` result covering
+all 1,616 symmetry-reduced roots is still required to prove D(13)=11.
+
+The two additional bounded continuation runs reported:
+
+| Root | Previously complete prefixes | Final prefixes | New DFS nodes | Wall seconds |
+| ---- | ----: | ----: | ----: | ----: |
+| 1159 | 4,271 / 4,553 | 4,553 / 4,553 | 9,619,723 | 30.7754 |
+| 1161 | 4,339 / 4,634 | 4,634 / 4,634 | 9,664,406 | 32.5407 |
+
+Both status lines are `EXHAUSTED` and neither produced a 12-array family.
+The **two new runs together** traversed **19,284,129 nodes** in **63.3161 s**
+combined wall time (excluding earlier computations). The global order-13
+search currently has 805 completed roots out of 1,616. This is **not** an
+exhaustive impossibility proof for n=13.
+
+`make_transfer.py` regenerates the text restoration scripts from the local
+checkpoint directory and the logs, and `restore_logs.py` can independently
+recreate all 24 recorded logs. `MANIFEST.sha256` hashes every delivered file
+other than itself. The original certificates and TASK.md live outside result/
+in the base repository.
