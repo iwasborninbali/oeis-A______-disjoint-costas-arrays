@@ -1,0 +1,3 @@
+n=4 k=4 catalogue=12 canonical_roots=2 threads=5 setup_seconds=0.000544731
+FOUND order=4 k=4 root=0 nodes=3 indices=0,11,8,3,
+SUMMARY n=4 k=4 status=FOUND completed_roots=0 total_roots=2 reused=0 started=1 nodes_this_run=3 wall_seconds=0.00156986

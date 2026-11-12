@@ -1,0 +1,2 @@
+n=13 k=12 catalogue=12828 canonical_roots=1616 threads=5 setup_seconds=1.10805
+PREFIX_SUMMARY root=1163 k=12 status=EXHAUSTED completed=4547 total=4547 reused=4235 nodes_this_run=9742361 elapsed=30.4475

@@ -1,0 +1,13 @@
+n=1 count=1 nodes=2 seconds=0.000393818 file=catalogues/costas1.bin
+n=2 count=2 nodes=5 seconds=0.000194389 file=catalogues/costas2.bin
+n=3 count=4 nodes=14 seconds=0.000236258 file=catalogues/costas3.bin
+n=4 count=12 nodes=49 seconds=3.0532e-05 file=catalogues/costas4.bin
+n=5 count=40 nodes=190 seconds=2.1197e-05 file=catalogues/costas5.bin
+n=6 count=116 nodes=785 seconds=0.000367426 file=catalogues/costas6.bin
+n=7 count=200 nodes=3258 seconds=0.000252542 file=catalogues/costas7.bin
+n=8 count=444 nodes=14297 seconds=0.000891224 file=catalogues/costas8.bin
+n=9 count=760 nodes=64430 seconds=0.00414635 file=catalogues/costas9.bin
+n=10 count=2160 nodes=304201 seconds=0.0248691 file=catalogues/costas10.bin
+n=11 count=4368 nodes=1437514 seconds=0.137268 file=catalogues/costas11.bin
+n=12 count=7852 nodes=6977361 seconds=0.690686 file=catalogues/costas12.bin
+n=13 count=12828 nodes=33831238 seconds=3.89582 file=catalogues/costas13.bin

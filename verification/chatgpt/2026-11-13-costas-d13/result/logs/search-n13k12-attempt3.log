@@ -1,0 +1,8 @@
+n=13 k=12 catalogue=12828 canonical_roots=1616 threads=5 setup_seconds=0.881423
+INTERRUPTED root=1158 nodes=1025153 no_checkpoint_written
+INTERRUPTED root=1163 nodes=1821619 no_checkpoint_written
+INTERRUPTED root=1162 nodes=1199307 no_checkpoint_written
+INTERRUPTED root=1161 nodes=1291621 no_checkpoint_written
+INTERRUPTED root=1159 nodes=1017732 no_checkpoint_written
+SUMMARY n=13 k=12 status=INCOMPLETE completed_roots=802 total_roots=1616 reused=802 started=5 nodes_this_run=6355432 wall_seconds=20.8864
+13 resume elapsed=20.89 CPU=384% rss=23020 KB
