@@ -26,7 +26,14 @@ def main():
         assert cat == sorted(cat)
         assert all(costas(p) for p in cat)
         print(f'catalogue n={n}: {len(cat)} independent checks passed')
-    for f in sorted((BASE/'verification'/'certificates').glob('witness*.json')):
+    witness_dir=BASE/'verification'/'certificates'
+    if not witness_dir.is_dir():
+        # Running inside verification/chatgpt/<task>/result/ on the repository branch.
+        witness_dir=BASE.parents[2]/'certificates'
+    witness_files=sorted(witness_dir.glob('witness*.json'))
+    if len(witness_files)!=5:
+        raise FileNotFoundError(f'Expected 5 witness certificates in {witness_dir}; found {len(witness_files)}')
+    for f in witness_files:
         obj=json.loads(f.read_text())
         n=obj['order']; a=[tuple(p) for p in obj['arrays']]
         cat=catalogue(n)
