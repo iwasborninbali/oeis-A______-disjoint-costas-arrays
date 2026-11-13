@@ -1,7 +1,7 @@
 # OEIS candidate (no A-number yet): maximum disjoint Costas arrays
 
 <!-- oeis-status:begin -->
-**OEIS status: not submitted; no A-number yet** (lab registry, 13 Nov 2026).
+**OEIS status: not submitted; no A-number yet** (lab registry, 14 Nov 2026).
 
 - A______, maximum number of pairwise disjoint Costas arrays of order n: **candidate** (2026-11-13: repository built (core c1)). Certificate: partial.
 
